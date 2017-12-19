@@ -25,3 +25,18 @@ pipeline {
     }
 
 }
+
+// Script //
+node {
+    stage('build'){
+        echo 'build'
+    }
+
+    stage('Test'){
+        echo 'Test'
+    }
+
+    stage('deploy'){
+        echo 'deploy'
+    }
+}
