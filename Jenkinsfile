@@ -18,6 +18,6 @@ node {
 
     stage('run'){
         echo 'start server'
-        sh 'java -jar --server.port=8000 /usr/workspace/deploy/demo-0.0.1-SNAPSHOT.jar > log.file 2>&1 &'
+        sh 'java -jar --server.port=8000 /usr/workspace/deploy/demo-0.0.1-SNAPSHOT.jar > /usr/workspace/deploy/log.file 2>&1 &'
     }
 }
