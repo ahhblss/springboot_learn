@@ -13,7 +13,7 @@ node {
         echo 'start deploy'
         sh 'cp target/demo-0.0.1-SNAPSHOT.jar /usr/workspace/deploy'
         sh 'cd /usr/workspace/deploy'
-        sh 'chmod –R 777 *'
+        sh 'chmod 777 /usr/workspace/deploy/*'
         sh 'java -jar demo-0.0.1-SNAPSHOT.jar'
     }
 }
