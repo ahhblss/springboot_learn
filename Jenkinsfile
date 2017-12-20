@@ -1,44 +1,18 @@
-// Declarative //
-pipeline {
-    agent any
-
-    stages {
-
-        stage('Build'){
-            steps {
-                echo 'build'
-            }
-        }
-
-        stage('Test'){
-            steps {
-                echo 'Test'
-            }
-        }
-
-        stage('Deploy'){
-            steps {
-                echo 'Deploy'
-            }
-        }
-
-    }
-
-}
-
 // Script //
 node {
     stage('build'){
-        echo 'build'
+        echo 'build start'
+        sh 'mvn clean package -Dmaven.test.skip=true'
     }
 
     stage('Test'){
-        echo 'Test'
+        echo 'Test skiped'
     }
 
     stage('deploy'){
-        def username = 'Jenkins'
-        echo 'Hello Mr. ${username}'
-        echo "I said, Hello Mr. ${username}"
+        echo 'start deploy'
+        sh 'cp target/demo-0.0.1-SNAPSHOT.jar /usr/workspace/deploy'
+        sh 'cd /usr/workspace/deploy'
+        sh 'java -jar demo-0.0.1-SNAPSHOT.jar'
     }
 }
