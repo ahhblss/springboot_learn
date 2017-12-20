@@ -14,6 +14,10 @@ node {
         sh 'cp target/demo-0.0.1-SNAPSHOT.jar /usr/workspace/deploy'
         sh 'cd /usr/workspace/deploy'
         sh 'chmod 777 /usr/workspace/deploy/*'
-        sh 'java -jar /usr/workspace/deploy/demo-0.0.1-SNAPSHOT.jar'
+    }
+
+    stage('run'){
+        echo 'start server'
+        sh 'java -jar /usr/workspace/deploy/demo-0.0.1-SNAPSHOT.jar --server.port=8000'
     }
 }
